@@ -11,7 +11,7 @@ context('Uttaksplan', () => {
             cy.route('GET', '**/storage*', JSON.stringify(storage));
         });
 
-        cy.visit('http://localhost:8080');
+        cy.visit('/');
     });
 
     it('Skal kunne legge inn ny periode', () => {

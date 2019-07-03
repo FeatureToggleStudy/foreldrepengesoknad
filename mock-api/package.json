@@ -1,0 +1,11 @@
+{
+    "name": "mock-api-server",
+    "version": "1.0.0",
+    "description": "mock-api for foreldrepengesoknad",
+    "main": "mock-api-server.js",
+    "scripts": {
+        "start-mock-api-server": "node ./mock-api-server.js"
+    },
+    "author": "NAV",
+    "license": "MIT"
+}

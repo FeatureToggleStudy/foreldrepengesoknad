@@ -22,7 +22,8 @@
             "jest --config ./jest/jest.config.js --coverage --collectCoverageFrom=src/**/*.{ts,tsx} --collectCoverageFrom=!src/**/*.d.{ts,tsx}",
         "jest-watch": "jest --watch --verbose --config ./jest/jest.config.js",
         "cypress": "$(npm bin)/cypress open",
-        "cypress-headless": "$(npm bin)/cypress run"
+        "cypress-headless": "$(npm bin)/cypress run",
+        "up": "docker-compose up --abort-on-container-exit --exit-code-from cypress-tests"
     },
     "keywords": [],
     "author": "NAV",

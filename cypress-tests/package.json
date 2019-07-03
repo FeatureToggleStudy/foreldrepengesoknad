@@ -1,0 +1,13 @@
+{
+    "name": "cypress-tests",
+    "version": "1.0.0",
+    "description": "Cypress tests",
+    "main": "index.js",
+    "keywords": [],
+    "author": "NAV",
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "cypress": "3.3.2"
+    }
+}

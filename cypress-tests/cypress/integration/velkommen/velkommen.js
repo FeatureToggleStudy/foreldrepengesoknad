@@ -5,7 +5,7 @@ context('Velkommen side med sak fra infotrygd', () => {
         cy.server();
         cy.route('GET', '**/storage*', 'fixture:storage/empty.json');
         cy.route('GET', '**/saker*', 'fixture:saker/infotrygd.json');
-        cy.visit('http://localhost:8080');
+        cy.visit('/');
     });
 
     it('Skal tilby endringssøknad for saker fra infotrygd', () => {

@@ -1,0 +1,65 @@
+{
+    "søknad": {
+        "type": "foreldrepenger",
+        "annenForelder": {
+            "kanIkkeOppgis": false,
+            "fornavn": "Fnavn",
+            "etternavn": "Enavn",
+            "fnr": "123",
+            "utenlandskFnr": true,
+            "bostedsland": "FR",
+            "harRettPåForeldrepenger": true,
+            "erInformertOmSøknaden": true
+        },
+        "barn": {
+            "erBarnetFødt": false,
+            "antallBarn": 1,
+            "termindato": "2019-07-03T12:05:32.005Z"
+        },
+        "informasjonOmUtenlandsopphold": {
+            "tidligereOpphold": [],
+            "senereOpphold": []
+        },
+        "søker": {
+            "erAleneOmOmsorg": false,
+            "andreInntekterSiste10Mnd": [],
+            "rolle": "MOR"
+        },
+        "harGodkjentVilkår": true,
+        "harGodkjentOppsummering": false,
+        "ekstrainfo": {
+            "erEnkelEndringssøknad": false,
+            "uttaksplanSkjema": {
+                "startdatoPermisjon": "2019-07-03T12:05:32.005Z",
+                "fellesperiodeukerMor": 8,
+                "forslagLaget": true
+            },
+            "currentStegID": "uttaksplan",
+            "søknadenGjelderBarnValg": {
+                "valgteBarn": []
+            },
+            "lastAddedPeriodeId": "0022207035-16740-15366-4202-2990191399088"
+        },
+        "tilleggsopplysninger": {},
+        "uttaksplan": [
+            {
+                "type": "uttak",
+                "id": "0022207035-16740-15366-4202-2990191399088",
+                "konto": "MØDREKVOTE",
+                "forelder": "mor",
+                "tidsperiode": {
+                    "fom": "2019-07-03T00:00:00.000Z",
+                    "tom": "2019-08-13T00:00:00.000Z"
+                },
+                "gradert": false,
+                "ønskerSamtidigUttak": false
+            }
+        ],
+        "erEndringssøknad": false,
+        "situasjon": "fødsel",
+        "dekningsgrad": "100"
+    },
+    "common": {
+        "språkkode": "nb"
+    }
+}
