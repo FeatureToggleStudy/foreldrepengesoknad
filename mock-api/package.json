@@ -1,5 +1,5 @@
 {
-    "name": "mock-api-server",
+    "name": "mock-api",
     "version": "1.0.0",
     "description": "mock-api for foreldrepengesoknad",
     "main": "mock-api-server.js",
@@ -7,5 +7,11 @@
         "start-mock-api-server": "node ./mock-api-server.js"
     },
     "author": "NAV",
-    "license": "MIT"
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "dotenv": "8.0.0",
+        "express": "4.17.1",
+        "multer": "1.4.1"
+    }
 }

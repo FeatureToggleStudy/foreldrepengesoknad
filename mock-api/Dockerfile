@@ -1,11 +1,15 @@
 FROM node:alpine
 
-WORKDIR /usr/src/app
+WORKDIR /mock-api
 
-COPY mock-api-server.js .
-COPY node_modules ./node_modules
-COPY package.json .
+COPY mock_data mock_data
+COPY mock-storage.js mock-storage.js
+COPY mock-api-server.js mock-api-server.js
+COPY package.json package.json
+RUN pwd
+RUN ls
+RUN npm install
 
 EXPOSE 8888
 
-CMD ["npm", "run","start-mock-api-server"]
+CMD ["node", "./mock-api-server.js"]
