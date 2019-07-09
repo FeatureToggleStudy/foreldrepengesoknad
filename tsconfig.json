@@ -35,9 +35,9 @@
         "jest/__tests__/unit",
         "src/build",
         "src/config",
-        "integration-tests/cypress",
         "dist",
         "**.js",
-        "cypress-tests"
+        "cypress-tests",
+        "mock-api"
     ]
 }
