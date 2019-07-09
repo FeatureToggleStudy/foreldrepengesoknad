@@ -4,7 +4,6 @@ services:
         build:
             context: ./
             dockerfile: Dockerfile
-        container_name: foreldrepengesoknad-test-container
         depends_on:
             - mock-api-server
         restart: always
@@ -23,7 +22,6 @@ services:
         build:
             context: ./mock-api
             dockerfile: Dockerfile
-        container_name: mock-api-server
         restart: always
         ports:
             - '8888:8888'
@@ -36,7 +34,6 @@ services:
         build: 
             context: ./cypress-tests
             dockerfile: Dockerfile
-        container_name: cypress
         depends_on:
             - webapp
             - mock-api-server

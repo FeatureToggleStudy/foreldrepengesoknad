@@ -7,6 +7,10 @@
     "author": "NAV",
     "license": "MIT",
     "private": true,
+    "scripts": {
+        "cypress": "$(npm bin)/cypress open",
+        "cypress-headless": "$(npm bin)/cypress run"
+    },
     "devDependencies": {
         "cypress": "3.3.2"
     }

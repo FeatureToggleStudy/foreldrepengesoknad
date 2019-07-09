@@ -14,7 +14,7 @@
         "barn": {
             "erBarnetFødt": false,
             "antallBarn": 1,
-            "termindato": "2019-07-03T12:05:32.005Z"
+            "termindato": "2019-07-09T15:25:13.914Z"
         },
         "informasjonOmUtenlandsopphold": {
             "tidligereOpphold": [],
@@ -30,7 +30,7 @@
         "ekstrainfo": {
             "erEnkelEndringssøknad": false,
             "uttaksplanSkjema": {
-                "startdatoPermisjon": "2019-07-03T12:05:32.005Z",
+                "startdatoPermisjon": "2019-07-09T15:25:13.914Z",
                 "fellesperiodeukerMor": 8,
                 "forslagLaget": true
             },
@@ -38,18 +38,18 @@
             "søknadenGjelderBarnValg": {
                 "valgteBarn": []
             },
-            "lastAddedPeriodeId": "0022207035-16740-15366-4202-2990191399088"
+            "lastAddedPeriodeId": "0502409995-16586-13411-5140-097690552210470"
         },
         "tilleggsopplysninger": {},
         "uttaksplan": [
             {
                 "type": "uttak",
-                "id": "0022207035-16740-15366-4202-2990191399088",
+                "id": "0502409995-16586-13411-5140-097690552210470",
                 "konto": "MØDREKVOTE",
                 "forelder": "mor",
                 "tidsperiode": {
-                    "fom": "2019-07-03T00:00:00.000Z",
-                    "tom": "2019-08-13T00:00:00.000Z"
+                    "fom": "2019-07-09T00:00:00.000Z",
+                    "tom": "2019-08-19T00:00:00.000Z"
                 },
                 "gradert": false,
                 "ønskerSamtidigUttak": false

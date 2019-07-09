@@ -4,10 +4,12 @@ context('Uttaksplan', () => {
     before(() => {
         cy.server();
         cy.fixture('sokerinfo/mor_uten_barn.json').then((user) => {
+            console.log(user);
             cy.route('GET', '**/sokerinfo*', user);
         });
 
         cy.fixture('storage/storage_uttaksplan_steg_delt_omsorg.js', 'utf-8').then((storage) => {
+            console.log(storage);
             cy.route('GET', '**/storage*', JSON.stringify(storage));
         });
 

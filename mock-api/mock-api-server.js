@@ -2,27 +2,34 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const multer = require('multer');
+const cors = require('cors');
+const morgan = require('morgan');
 const MockStorage = require('./mock-storage');
 
 require('dotenv').config();
 
-const allowCrossDomain = function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,X-XSRF-TOKEN,Location');
-    res.setHeader('Access-Control-Expose-Headers', 'Location');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
+var whitelist = ['http://localhost:8080', 'http://webapp:8080'];
+var corsOptions = {
+    origin: function(origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
 };
+
 const delayAllResponses = function(millis) {
     return function(req, res, next) {
         setTimeout(next, millis);
     };
 };
 
-app.use(allowCrossDomain);
+app.use(cors(corsOptions));
 app.use(delayAllResponses(500));
 app.use(express.json());
+app.use(morgan('tiny'));
 
 router.get(['/rest/sokerinfo'], (req, res) => {
     res.send(MockStorage.getSokerInfo());
@@ -52,11 +59,11 @@ router.get('/rest/konto', (req, res) => {
 
 router.post('/rest/storage', (req, res) => {
     MockStorage.updateSoknad(req.body);
-    return res.sendStatus(200);
+    res.sendStatus(200);
 });
 
 router.delete('/rest/storage', (req, res) => {
-    return res.sendStatus(200);
+    res.sendStatus(200);
 });
 
 router.get('/rest/storage/kvittering/foreldrepenger', (req, res) => {
@@ -64,11 +71,11 @@ router.get('/rest/storage/kvittering/foreldrepenger', (req, res) => {
 });
 
 router.post('/rest/soknad', (req, res) => {
-    return res.send(MockStorage.getSoknadSendt());
+    res.send(MockStorage.getSoknadSendt());
 });
 
 router.post('/rest/soknad/endre', (req, res) => {
-    return res.send(MockStorage.getSoknadSendt());
+    res.send(MockStorage.getSoknadSendt());
 });
 
 router.delete('/rest/storage', (req, res) => {

@@ -37,6 +37,7 @@
         "src/config",
         "integration-tests/cypress",
         "dist",
-        "**.js"
+        "**.js",
+        "cypress-tests"
     ]
 }
