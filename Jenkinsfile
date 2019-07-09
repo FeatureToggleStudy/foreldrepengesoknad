@@ -31,7 +31,7 @@ node {
         echo "release version: ${releaseVersion}"
     }
 
-    stage("Build & publish") {
+    stage("Build") {
         withEnv(['HTTPS_PROXY=http://webproxy-internett.nav.no:8088',
                  'NO_PROXY=localhost,127.0.0.1,.local,.adeo.no,.nav.no,.aetat.no,.devillo.no,.oera.no',
                  'no_proxy=localhost,127.0.0.1,.local,.adeo.no,.nav.no,.aetat.no,.devillo.no,.oera.no',
@@ -40,10 +40,23 @@ node {
             System.setProperty("java.net.useSystemProxies", "true")
             System.setProperty("http.nonProxyHosts", "*.adeo.no")
             sh "npm install"
-            sh "npm run jest"
             sh "npm run build"
-        }
+        }    
+    }
 
+    stage("Test") {
+        withEnv(['HTTPS_PROXY=http://webproxy-internett.nav.no:8088',
+                 'NO_PROXY=localhost,127.0.0.1,.local,.adeo.no,.nav.no,.aetat.no,.devillo.no,.oera.no',
+                 'no_proxy=localhost,127.0.0.1,.local,.adeo.no,.nav.no,.aetat.no,.devillo.no,.oera.no',
+                 'NODE_TLS_REJECT_UNAUTHORIZED=0'
+        ]) 
+            sh "npm run jest"
+            sh "npm run up"
+            sh "npm run down"
+    }
+    }
+
+    stage("Publish") {
         sh "docker build --build-arg version=${releaseVersion} --build-arg app_name=${app} -t ${dockerRepo}/${app}:${releaseVersion} ."
 
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'nexusUser', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
