@@ -23,7 +23,8 @@
         "jest-watch": "jest --watch --verbose --config ./jest/jest.config.js",
         "cypress": "$(npm bin)/cypress open",
         "cypress-headless": "$(npm bin)/cypress run",
-        "up": "docker-compose up --abort-on-container-exit --exit-code-from cypress-tests"
+        "up": "docker-compose up --abort-on-container-exit --exit-code-from cypress-tests",
+        "down": "docker-compose down -v --rmi all"
     },
     "keywords": [],
     "author": "NAV",
