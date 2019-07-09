@@ -90,7 +90,7 @@ const webpackConfig = {
         new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb|nn|en/),
         new webpack.DefinePlugin({
             BUILD: {
-                VERSION: 'JSON.stringify(gitRevisionPlugin.version())'
+                VERSION: JSON.stringify(gitRevisionPlugin.version())
             }
         })
     ]
