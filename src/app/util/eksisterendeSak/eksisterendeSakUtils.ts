@@ -293,7 +293,11 @@ const getBarnFromSaksgrunnlag = (
     )[0];
 
     if (nyesteBarn === undefined) {
-        return undefined;
+        return {
+            antallBarn: sak.antallBarn,
+            erBarnetFødt: false,
+            termindato: sak.familieHendelseDato
+        };
     }
 
     const erBarnetFødt = moment(nyesteBarn.fødselsdato).isBetween(
