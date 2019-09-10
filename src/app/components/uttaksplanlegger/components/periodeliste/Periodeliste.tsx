@@ -133,7 +133,8 @@ class Periodeliste extends React.Component<Props> {
             antallFeriedager,
             meldingerPerPeriode,
             onLeggTilOpphold,
-            onLeggTilPeriode
+            onLeggTilPeriode,
+            søknadsinfo
         } = this.props;
 
         const filteredPerioder = this.shouldRenderHull(perioder)
@@ -175,6 +176,7 @@ class Periodeliste extends React.Component<Props> {
                                             onLeggTilOpphold={onLeggTilOpphold}
                                             onLeggTilPeriode={onLeggTilPeriode}
                                             navnPåForeldre={navnPåForeldre}
+                                            erDeltUttak={søknadsinfo.søknaden.erDeltUttak}
                                         />
                                     );
                                 case Periodetype.Info:

@@ -19,6 +19,7 @@ export interface Props {
     onToggle: onToggleItemProp;
     periode: PeriodeHull;
     navnPåForeldre: NavnPåForeldre;
+    erDeltUttak: boolean;
     onLeggTilPeriode?: (tidsperiode: Tidsperiode) => void;
     onLeggTilOpphold?: (tidsperiode: Tidsperiode) => void;
 }
@@ -27,6 +28,7 @@ const getTittelOgBeskrivelseForHull = (
     periode: PeriodeHull,
     dager: number,
     navnPåForeldre: NavnPåForeldre,
+    erDeltUttak: boolean,
     intl: InjectedIntl
 ): { tittel: string; beskrivelse: string } => {
     if (isAvslåttPeriode(periode)) {
@@ -54,6 +56,7 @@ const PeriodelisteHullItem: React.StatelessComponent<Props & InjectedIntlProps> 
     onLeggTilPeriode,
     onLeggTilOpphold,
     navnPåForeldre,
+    erDeltUttak,
     intl
 }) => {
     const antallDager = Tidsperioden(periode.tidsperiode).getAntallUttaksdager();
@@ -79,7 +82,13 @@ const PeriodelisteHullItem: React.StatelessComponent<Props & InjectedIntlProps> 
         );
     }
 
-    const { tittel, beskrivelse } = getTittelOgBeskrivelseForHull(periode, antallDager, navnPåForeldre, intl);
+    const { tittel, beskrivelse } = getTittelOgBeskrivelseForHull(
+        periode,
+        antallDager,
+        navnPåForeldre,
+        erDeltUttak,
+        intl
+    );
 
     return (
         <PeriodelisteInfo
@@ -105,7 +114,7 @@ const PeriodelisteHullItem: React.StatelessComponent<Props & InjectedIntlProps> 
                             <Block margin="xs" visible={kunHelligdager}>
                                 <FormattedMessage id="periodeliste.hull.info.helligdager" />
                             </Block>
-                            <Block margin="xs" visible={kunUttaksdager}>
+                            <Block margin="xs" visible={kunUttaksdager && !erDeltUttak}>
                                 <FormattedMessage
                                     id="periodeliste.hull.info.uttaksdager"
                                     values={{
